@@ -1,7 +1,3 @@
-/* IMPORTAÇÃO DE FONTES (Google Fonts) */
-/* Usando Montserrat para títulos (moderna/geométrica) e Open Sans para legibilidade no texto */
-
-
 /* VARIÁVEIS DE CORES (Esquema Azul/Escuro com alto contraste) */
 :root {
     --primary-color: #1a446c;     /* Azul escuro dos cabeçalhos dos cartões */
@@ -12,6 +8,7 @@
     --accent-color: #ffeb3b;      /* Cor de destaque para o texto de modificação */
     --hover-bg: #34495e;          /* Fundo ao passar o mouse na navegação */
 }
+
 /* RESET E ESTILOS GERAIS */
 * {
     margin: 0;
@@ -46,7 +43,7 @@ header h1 {
 
 /* NAVEGAÇÃO COM CSS FLEX */
 nav {
-    background-color: #333333; /* Fundo ligeiramente diferente para destacar os links */
+    background-color: #333333; 
 }
 
 nav ul {
@@ -58,7 +55,7 @@ nav ul {
 
 nav ul li {
     flex: 1;
-    max-width: 250px; /* Evita que os botões fiquem excessivamente largos */
+    max-width: 250px; 
     text-align: center;
 }
 
@@ -79,8 +76,8 @@ nav ul li a:hover {
 
 /* CONTEÚDO PRINCIPAL (MAIN COM CSS GRID) */
 main {
-    max-width: 1200px;  /* Largura limitada */
-    margin: 0 auto;     /* Centralizado horizontalmente */
+    max-width: 1200px;  
+    margin: 0 auto;     
     padding: 2rem 1rem;
 }
 
@@ -94,7 +91,7 @@ main > h1 {
 /* Configuração do Grid para os Cartões Laterais */
 .grid-container {
     display: grid;
-    grid-template-columns: 1fr; /* Coluna única no mobile por padrão */
+    grid-template-columns: 1fr; 
     gap: 1.5rem;
     align-items: start;
 }
@@ -105,7 +102,7 @@ main > h1 {
     border: 1px solid #d1d5db;
     border-radius: 6px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-    overflow: hidden; /* Garante que as bordas do topo sigam o raio */
+    overflow: hidden; 
     padding-bottom: 1.5rem;
 }
 
@@ -205,6 +202,6 @@ footer p {
 /* MEDIA QUERIES PARA RESPONSIVIDADE (Desktop) */
 @media (min-width: 768px) {
     .grid-container {
-        grid-template-columns: 2fr 1fr; /* Cartão esquerdo maior, cartão direito menor */
+        grid-template-columns: 2fr 1fr; 
     }
 }
