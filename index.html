@@ -11,8 +11,8 @@
     <meta name="author" content="Jean Carlos Jeronimo do Amaral Leal">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://googleapis.com" rel="stylesheet">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="estilos/base.css">
     <script src="scripts/obterdatas.js" defer></script>
@@ -33,24 +33,28 @@
 </header>
 
     <main>
-        <h1>Jean Carlos Jeronimo do Amaral Leal</h1>
+    <!-- ✅ O único h1 do bloco principal -->
+    <h1>Jean Carlos Jeronimo do Amaral Leal</h1>
+
+    <!-- 🌐 Contêiner do CSS Grid que organiza os cartões lado a lado e corrige o mapeamento do validador -->
+    <div class="grid-container">
 
         <!-- Cartão 1: Informações Gerais / Acadêmicas -->
         <section class="card">
             <h2>Minha Jornada no WDD 131</h2>
-            <!-- Lembre-se de salvar uma imagem otimizada na sua pasta local 'images' -->
-            <img src="imagens/perfil.jpg" alt="Foto de perfil de [Seu Nome]" width="400" height="300">
+            <img src="imagens/perfil.jpg" alt="Foto de perfil de Jean Carlos Jeronimo do Amaral Leal" width="400" height="300">
             <p>Olá! Este espaço é dedicado ao aprendizado dos conceitos dinâmicos da web. Aqui aplicarei JavaScript para manipular o DOM e criar páginas mais interativas e ricas.</p>
         </section>
 
         <!-- Cartão 2: Destaque de Conteúdo / Localização -->
         <section class="card">
             <h2>Minha Região</h2>
-            <!-- Lembre-se de salvar uma imagem otimizada na sua pasta local 'images' -->
-            <img src="imagens/natal-rn.jpg" alt="Vista da minha cidade ou região de origem" width="400" height="300">
+            <img src="imagens/natal-rn.jpg" alt="Vista aérea das praias de Natal, Rio Grande do Norte" width="400" height="300">
             <p>Atualmente moro em Natal/RN. É um lugar incrível e estou animado para conectar minhas raízes geográficas com o aprendizado global oferecido pelo curso.</p>
         </section>
-    </main>
+
+    </div> <!-- Fim do grid-container -->
+</main>
 
     <footer>
         <p>&copy; <span id="anoatual"></span> | Jean Carlos Jeronimo do Amaral Leal | Natal/RN</p>
