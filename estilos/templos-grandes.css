@@ -1,0 +1,62 @@
+/* ==========================================
+   LAYOUT PARA TELAS MAIORES (TABLETS E DESKTOPS >= 768px)
+   ========================================== */
+
+/* Remove a disposição Mobile de empilhamento do Header */
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+}
+
+.header-container {
+    justify-content: center; /* Centraliza o título textualmente */
+    width: auto;
+}
+
+header h1 {
+    font-size: 2.4rem;
+}
+
+/* Oculta completamente o botão de hambúrguer em desktops */
+#menu-button {
+    display: none;
+}
+
+/* Força o menu de navegação a ficar sempre visível em telas grandes */
+nav#nav-menu {
+    display: block !important; 
+    margin-top: 1.5rem;
+    width: auto;
+}
+
+/* Transforma os links verticais em uma linha horizontal fluida */
+nav ul {
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
+}
+
+nav a {
+    padding: 0.6rem 1.5rem;
+    background-color: transparent; /* Reseta o fundo cinza sutil do mobile */
+}
+
+/* Dimensionamento do Título da Seção Central */
+main h1 {
+    font-size: 2.2rem;
+}
+
+/* ==========================================
+   GRID RESPONSIVO AVANÇADO (AUTO-FIT & MINMAX)
+   ========================================== */
+.gallery-container {
+    /* Cria colunas responsivas dinâmicas com largura mínima de 300px por card */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem; 
+}
+
+figure img {
+    height: 260px; 
+}

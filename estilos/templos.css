@@ -1,0 +1,186 @@
+/* ==========================================
+   1. RESET & CONFIGURAÇÕES BASE
+   ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f7fafc; 
+    color: #2d3748; 
+    line-height: 1.6;
+}
+
+/* ==========================================
+   2. TIPOGRAFIA & ALINHAMENTO
+   ========================================== */
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+    color: #1a365d; 
+    text-align: center;
+}
+
+/* ==========================================
+   3. CABEÇALHO (HEADER) & NAVEGAÇÃO RESPONSIVA
+   ========================================== */
+header {
+    background-color: #1a365d;
+    color: #ffffff;
+    padding: 1.2rem 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+header h1 {
+    color: #ffffff;
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+/* Botão de Hambúrguer (Mobile Only por enquanto) */
+#menu-button {
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 2.2rem;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0.2rem;
+    transition: color 0.2s ease;
+}
+
+#menu-button::before {
+    content: "☰"; /* Ícone de Menu */
+}
+
+#menu-button.open::before {
+    content: "✕"; /* Ícone de Fechar */
+}
+
+/* Configuração Inicial Oculta do Menu Mobile */
+nav#nav-menu {
+    display: none;
+    margin-top: 1.2rem;
+    width: 100%;
+}
+
+/* Classe engatada via JS para exibir o menu */
+nav#nav-menu.show {
+    display: block;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+nav a {
+    display: block;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0.8rem;
+    font-weight: 500;
+    text-align: center;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.06); 
+    transition: all 0.3s ease;
+}
+
+/* Efeito Hover com alto contraste */
+nav a:hover {
+    background-color: #feebc8; 
+    color: #1a365d; 
+    font-weight: 700;
+}
+
+/* ==========================================
+   4. CONTEÚDO PRINCIPAL (MAIN)
+   ========================================== */
+main {
+    max-width: 1200px; 
+    margin: 2.5rem auto; 
+    padding: 0 1.25rem; 
+}
+
+main h1 {
+    font-size: 1.6rem;
+    margin-bottom: 2.5rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+main h1::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: #feebc8;
+    margin: 0.5rem auto 0 auto;
+    border-radius: 2px;
+}
+
+/* ==========================================
+   5. GALERIA DE IMAGENS (CSS GRID - 1 COLUNA MOBILE)
+   ========================================== */
+.gallery-container {
+    display: grid;
+    grid-template-columns: 1fr; 
+    gap: 1.75rem; 
+}
+
+figure {
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+figure:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+figure img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover; 
+    display: block;
+}
+
+figcaption {
+    padding: 1.2rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    text-align: center;
+    color: #2d3748;
+    border-top: 1px solid #edf2f7; 
+}
+
+/* ==========================================
+   6. RODAPÉ (FOOTER)
+   ========================================== */
+footer {
+    background-color: #2d3748;
+    color: #e2e8f0;
+    text-align: center;
+    padding: 2rem 1rem;
+    margin-top: 4rem;
+    font-size: 0.9rem;
+    border-top: 4px solid #1a365d;
+}
+
+footer p {
+    margin: 0.4rem 0;
+}
