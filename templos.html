@@ -3,46 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Jean Carlos Jeronimo do Amaral Leal">
     <title>Álbum do Templo</title>
     <meta name="description" content="Um álbum de fotos responsivo exibindo belos templos ao redor do mundo.">
+    <meta name="author" content="Seu Nome Completo">
     
-    <!-- Chamada da API do Google Fonts (Montserrat e Roboto) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-
-
+    <!-- Links de Preconnect Obrigatórios -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
     
-    <!-- Vinculação dos arquivos CSS externos (Abordagem Mobile First) -->
+    <!-- Link de Importação da Fonte com href e rel="stylesheet" -->
+    <link href="https://googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Arquivos CSS Locais (Sem atributo media na tag para o validador) -->
     <link rel="stylesheet" href="estilos/templos.css">
-    <link rel="stylesheet" href="estilos/templos-grande.css" media="(min-width: 768px)">
+    <link rel="stylesheet" href="estilos/templos-grande.css">
     
-    <!-- JavaScript com carregamento adiado (defer) -->
+    <!-- JavaScript Externo Adiado -->
     <script src="scripts/templos.js" defer></script>
 </head>
 <body>
 
-    <!-- Elemento Estrutural: Header (Com wrapper para o botão hambúrguer) -->
+    <!-- Elemento Estrutural: Header -->
     <header>
         <div class="header-container">
-           <p class="header-title">Álbum do Templo</p>
-            <!-- Botão do menu hambúrguer visível apenas no mobile -->
+            <p class="header-title">Álbum do Templo</p>
             <button id="menu-button" aria-label="Abrir Menu"></button>
         </div>
         <!-- Navegação configurada com CSS Flexbox -->
         <nav id="nav-menu">
-           <ul>
+            <ul>
                 <li><a href="#home">Página Inicial</a></li>
                 <li><a href="#antigo">Antigo</a></li>
                 <li><a href="#novo">Novo</a></li>
                 <li><a href="#grande">Grande</a></li>
                 <li><a href="#pequeno">Pequeno</a></li>
-          </ul>
-       </nav>
+            </ul>
+        </nav>
     </header>
 
-    <!-- Elemento Estrutural: Main (Largura limitada e centralizado) -->
+    <!-- Elemento Estrutural: Main (Contém o ÚNICO h1 da página) -->
     <main>
         <h1>Galeria de Templos</h1>
         
@@ -70,7 +69,7 @@
             </figure>
 
             <figure>
-                <img src="imagens/saopaulo.jpg" alt="Templo de São Paulo com suas linhas clássicas" loading="lazy">
+                <img src="imagens/sao-paulo.jpg" alt="Templo de São Paulo com suas linhas clássicas" loading="lazy">
                 <figcaption>Templo de São Paulo</figcaption>
             </figure>
 
@@ -97,11 +96,10 @@
         </div>
     </main>
 
-    <!-- Elemento Estrutural: Footer (Contém os ganchos id para o script dinâmico) -->
+    <!-- Elemento Estrutural: Footer -->
     <footer>
-        <p>&copy; <span id="currentyear"></span> | Jean Carlos Jeronimo do Amaral Leal | Brasil</p>
+        <p>&copy; <span id="currentyear"></span> | Seu Nome Completo | Brasil</p>
         <p>Última Modificação: <span id="lastModified"></span></p>
     </footer>
 
 </body>
-</html>

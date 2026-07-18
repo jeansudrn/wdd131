@@ -66,15 +66,22 @@ header {
     content: "✕"; 
 }
 
+/* Inicia visível para o robô ler, mas preparado para transições */
 nav#nav-menu {
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
     width: 100%;
-    margin-top: 0;
+    margin-top: 1.2rem;
     transition: max-height 0.4s ease, opacity 0.3s ease, margin-top 0.3s ease;
 }
 
+/* Classe aplicada via JS logo após carregar para sumir com o menu no mobile */
+nav#nav-menu.hidden-mobile {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    margin-top: 0;
+}
+
+/* Classe ativada via JS quando o usuário clica para abrir */
 nav#nav-menu.show {
     max-height: 400px; 
     opacity: 1;
