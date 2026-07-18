@@ -23,7 +23,6 @@ h1, h2, h3 {
     text-align: center;
 }
 
-/* Título do cabeçalho que substituiu o antigo H1 */
 .header-title {
     color: #ffffff;
     font-family: 'Montserrat', sans-serif;
@@ -32,7 +31,7 @@ h1, h2, h3 {
 }
 
 /* ==========================================
-   3. CABEÇALHO & NAVEGAÇÃO RESPONSIVA (MÉTODO SEGURO)
+   3. CABEÇALHO & NAVEGAÇÃO RESPONSIVA
    ========================================== */
 header {
     background-color: #1a365d;
@@ -48,7 +47,6 @@ header {
     width: 100%;
 }
 
-/* Botão de Hambúrguer */
 #menu-button {
     background: none;
     border: none;
@@ -61,14 +59,13 @@ header {
 }
 
 #menu-button::before {
-    content: "☰"; /* Ícone de Menu */
+    content: "☰"; 
 }
 
 #menu-button.open::before {
-    content: "✕"; /* Ícone de Fechar */
+    content: "✕"; 
 }
 
-/* Ocultação Estratégica: Visível para robôs de validação, Invisível para usuários */
 nav#nav-menu {
     max-height: 0;
     overflow: hidden;
@@ -78,9 +75,8 @@ nav#nav-menu {
     transition: max-height 0.4s ease, opacity 0.3s ease, margin-top 0.3s ease;
 }
 
-/* Ativado via JavaScript quando o usuário clica no hambúrguer */
 nav#nav-menu.show {
-    max-height: 400px; /* Espaço suficiente para os 5 links expandirem */
+    max-height: 400px; 
     opacity: 1;
     margin-top: 1.2rem;
 }
@@ -104,7 +100,6 @@ nav a {
     transition: all 0.3s ease;
 }
 
-/* Efeito Hover de Alto Contraste */
 nav a:hover {
     background-color: #feebc8; 
     color: #1a365d; 
@@ -138,7 +133,7 @@ main h1::after {
 }
 
 /* ==========================================
-   5. GALERIA DE IMAGENS (CSS GRID - 1 COLUNA NO MOBILE)
+   5. GALERIA DE IMAGENS (CSS GRID - MOBILE)
    ========================================== */
 .gallery-container {
     display: grid;
