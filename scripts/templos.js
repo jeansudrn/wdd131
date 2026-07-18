@@ -1,42 +1,39 @@
+// Aguarda o documento HTML ser completamente carregado
 document.addEventListener("DOMContentLoaded", () => {
     
     /* ==========================================================
-       1. MENU HAMBÚRGUER RESPONSIVO (SEGURO PARA VALIDADOR)
+       1. MENU HAMBÚRGUER RESPONSIVO
        ========================================================== */
     const menuButton = document.getElementById("menu-button");
     const navMenu = document.getElementById("nav-menu");
 
     if (menuButton && navMenu) {
-        // Se a tela for menor que 768px (Mobile), oculta o menu após o carregamento inicial
-        if (window.innerWidth < 768) {
-            navMenu.classList.add("hidden-mobile");
-        }
-
         menuButton.addEventListener("click", () => {
-            // Se o menu contém a classe que esconde, nós a removemos e mostramos o menu
-            if (navMenu.classList.contains("hidden-mobile")) {
-                navMenu.classList.remove("hidden-mobile");
-                navMenu.classList.add("show");
-                menuButton.classList.add("open");
+            // Alterna a classe 'show' para exibir/esconder as opções do menu
+            navMenu.classList.toggle("show");
+            
+            // Alterna a classe 'open' para mudar o ícone de ☰ para ✕
+            menuButton.classList.toggle("open");
+            
+            // Atualiza o atributo de acessibilidade aria-label dinamicamente
+            if (menuButton.classList.contains("open")) {
                 menuButton.setAttribute("aria-label", "Fechar Menu");
             } else {
-                // Caso contrário, ocultamos o menu novamente usando a classe segura
-                navMenu.classList.remove("show");
-                navMenu.classList.add("hidden-mobile");
-                menuButton.classList.remove("open");
                 menuButton.setAttribute("aria-label", "Abrir Menu");
             }
         });
     }
 
     /* ==========================================================
-       2. RODAPÉ DINÂMICO
+       2. RODAPÉ DINÂMICO (ANO ATUAL E ÚLTIMA MODIFICAÇÃO)
        ========================================================== */
+    // Captura o elemento do ano corrente
     const yearSpan = document.getElementById("currentyear");
     if (yearSpan) {
         yearSpan.textContent = new Date().getFullYear();
     }
 
+    // Captura o elemento da última modificação do documento
     const lastModifiedSpan = document.getElementById("lastModified");
     if (lastModifiedSpan) {
         lastModifiedSpan.textContent = document.lastModified;

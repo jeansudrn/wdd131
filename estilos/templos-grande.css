@@ -22,9 +22,7 @@
         display: none;
     }
 
-    /* Reseta forçadamente as classes JavaScript de manipulação mobile */
-    nav#nav-menu,
-    nav#nav-menu.hidden-mobile {
+    nav#nav-menu {
         display: block !important; 
         max-height: none !important;
         opacity: 1 !important;
