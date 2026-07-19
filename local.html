@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazônia - Brasil</title>
+    <meta name="description" content="Página informativa sobre a Amazônia brasileira com dados gerais e clima local.">
+    <link rel="stylesheet" href="estilos/local.css">
+    <script src="scripts/local.js" defer></script>
+</head>
+<body>
+    <header class="main-header">
+        <h1>Amazônia, Brasil</h1>
+    </header>
+
+    <main class="hero-container">
+        <!-- Elemento picture para alternar imagens da Amazônia com base na tela -->
+        <picture class="hero-picture">
+            <source media="(min-width: 768px)" srcset="imagens/hero-large.webp">
+            <img src="imagens/hero-small.webp" alt="Vista aérea da floresta amazônica e rios" loading="lazy">
+        </picture>
+
+        <!-- Card de Informações Gerais -->
+        <section class="card data-card">
+            <h2>Dados Gerais</h2>
+            <ul class="data-list">
+                <li><strong>Área:</strong> ~5.500.000 sq km</li>
+                <li><strong>População:</strong> ~28.000.000 (Região Norte)</li>
+                <li><strong>Estados Principais:</strong> AM, PA, RO, RR, AC, AP, TO</li>
+                <li><strong>Idiomas:</strong> Português, Línguas Indígenas</li>
+                <li><strong>Moeda:</strong> Real Brasileiro (R$)</li>
+                <li><strong>Fuso Horário:</strong> UTC-4 / UTC-3</li>
+                <li><strong>Código de Discagem:</strong> +55</li>
+                <li><strong>Domínio de Internet:</strong> .br</li>
+            </ul>
+        </section>
+
+        <!-- Card do Clima -->
+        <section class="card weather-card">
+            <h2>Clima <span class="desktop-icon">⛅</span></h2>
+            
+            <div class="mobile-icon-container">
+                <img src="imagens/weather-icon.svg" alt="Ícone de parcialmente nublado" class="weather-svg">
+            </div>
+
+            <div class="weather-info">
+                <p><strong>Temperatura:</strong> 29 °C</p>
+                <p><strong>Condições:</strong> Parcialmente Nublado</p>
+                <p><strong>Vento:</strong> 8 km/h</p>
+                <p><strong>Sensação Térmica:</strong> <span id="chill">Calculando...</span></p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <p>&copy;<span id="current-year"></span> Jean Carlos Jeronimo do Amaral Leal <span>🇧🇷</span> Amazônia, Brasil</p>
+        <p>Última Modificação: <span id="last-mod"></span></p>
+    </footer>
+</body>
+</html>
