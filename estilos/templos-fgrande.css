@@ -1,0 +1,59 @@
+/* ==========================================
+   REGRA MEDIA QUERY ENCAPSULADA PARA DESKTOPS
+   ========================================== */
+@media (min-width: 768px) {
+    header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem;
+    }
+
+    .header-container {
+        justify-content: center; 
+        width: auto;
+    }
+
+    .header-title {
+        font-size: 2.4rem;
+    }
+
+    #menu-button {
+        display: none;
+    }
+
+    /* Reseta as classes JavaScript de manipulação mobile */
+    nav#nav-menu,
+    nav#nav-menu.hidden-mobile {
+        display: block !important; 
+        max-height: none !important;
+        opacity: 1 !important;
+        overflow: visible !important;
+        margin-top: 1.5rem;
+        width: auto;
+    }
+
+    nav ul {
+        flex-direction: row;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    nav a {
+        padding: 0.6rem 1.5rem;
+        background-color: transparent; 
+    }
+
+    main h1 {
+        font-size: 2.2rem;
+    }
+
+    .gallery-container {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem; 
+    }
+
+    figure img {
+        height: 260px; 
+    }
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Álbum do Templo - Filtrado</title>
+    <meta name="description" content="Álbum de fotos de templos gerado dinamicamente com filtros de pesquisa responsivos.">
+    <meta name="author" content="Jean Carlos Jeronimo do Amaral Leal">
+    
+    <!-- Links de Preconnect Obrigatórios -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    
+    <!-- Link de Importação da Fonte -->
+    <link href="https://googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Arquivos CSS Locais (Sem atributo media na tag para o validador) -->
+    <link rel="stylesheet" href="estilos/templosf.css">
+    <link rel="stylesheet" href="estilos/templos-fgrande.css">
+    
+    <!-- JavaScript Externo Adiado -->
+    <script src="scripts/templosf.js" defer></script>
+</head>
+<body>
+
+    <!-- Elemento Estrutural: Header -->
+    <header>
+        <div class="header-container">
+            <p class="header-title">Álbum do Templo</p>
+            <button id="menu-button" aria-label="Abrir Menu"></button>
+        </div>
+        <!-- Navegação configurada com CSS Flexbox -->
+        <nav id="nav-menu">
+            <ul>
+                <li><a href="#home" id="filter-home">Página Inicial</a></li>
+                <li><a href="#antigo" id="filter-old">Antigo</a></li>
+                <li><a href="#novo" id="filter-new">Novo</a></li>
+                <li><a href="#grande" id="filter-large">Grande</a></li>
+                <li><a href="#pequeno" id="filter-small">Pequeno</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Elemento Estrutural: Main (Contém o ÚNICO h1 da página) -->
+    <main>
+        <h1 id="main-title">Página Inicial</h1>
+        
+        <!-- Elemento que receberá os cartões dinamicamente pelo JavaScript -->
+        <div class="gallery-container" id="gallery"></div>
+    </main>
+
+    <!-- Elemento Estrutural: Footer -->
+    <footer>
+        <p>&copy; <span id="currentyear"></span> | Jean Carlos Jeronimo do Amaral Leal | Brasil</p>
+        <p>Última Modificação: <span id="lastModified"></span></p>
+    </footer>
+
+</body>
+</html>
