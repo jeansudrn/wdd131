@@ -4,13 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Avaliação do Produto</title>
+    <meta name="description" content="Formulário de avaliação de produtos eletroeletrônicos para feedback de instalação, recursos úteis e classificação por estrelas.">
+    <meta name="author" content="Jean Carlos Jeronimo do Amaral Leal">
+
     <link rel="stylesheet" href="estilos/formulario.css">
     <script src="scripts/formulario.js" defer></script>
 </head>
 <body>
 
-    <main class="form-container">
+    <header class="main-header">
         <h1>Avaliação do Produto</h1>
+    </header>
+
+    <main class="form-container">
+        
         
         <form action="avaliacao.html" method="get">
             
@@ -18,7 +25,7 @@
             <div class="form-group">
                 <label for="produto">Nome do Produto</label>
                 <select id="produto" name="produto" required>
-                    <option value="" disabled selected>Selecione um Produto...</option>
+                    <option value="" disabled selected>Selecione um produto...</option>
                 </select>
             </div>
 
@@ -51,12 +58,27 @@
 
             <!-- Recursos Úteis -->
             <fieldset class="form-group-checkbox">
-                <legend>Quais recursos você achou úteis no produto? (Marque todos que se aplicam)</legend>
-                
-                <label><input type="checkbox" name="recursos" value="durabilidade"> Durabilidade</label>
-                <label><input type="checkbox" name="recursos" value="facilidade-uso"> Facilidade de Uso</label>
-                <label><input type="checkbox" name="recursos" value="desempenho"> Desempenho</label>
-                <label><input type="checkbox" name="recursos" value="design"> Design</label>
+              <legend>Quais recursos você achou úteis no produto? (Marque todos que se aplicam)</legend>
+    
+                 <div class="checkbox-item">
+                     <input type="checkbox" id="recurso-durabilidade" name="recursos" value="durabilidade">
+                     <label for="recurso-durabilidade">Durabilidade</label>
+                </div>
+    
+                <div class="checkbox-item">
+                    <input type="checkbox" id="recurso-facilidade" name="recursos" value="facilidade-uso">
+                    <label for="recurso-facilidade">Facilidade de Uso</label>
+                </div>
+    
+                <div class="checkbox-item">
+                     <input type="checkbox" id="recurso-desempenho" name="recursos" value="desempenho">
+                     <label for="recurso-desempenho">Desempenho</label>
+                </div>
+    
+                <div class="checkbox-item">
+                    <input type="checkbox" id="recurso-design" name="recursos" value="design">
+                    <label for="recurso-design">Design</label>
+                </div>
             </fieldset>
 
             <!-- Avaliação Escrita -->

@@ -1,3 +1,4 @@
+/* --- VARIÁVEIS DE CORES (AZUL E BRANCO) --- */
 :root {
     --primary-blue: #0056b3;
     --light-blue: #e6f0fa;
@@ -6,6 +7,7 @@
     --gray-text: #555555;
 }
 
+/* --- ESTILOS GERAIS DA PÁGINA --- */
 body {
     font-family: Arial, sans-serif;
     background-color: var(--light-blue);
@@ -18,29 +20,40 @@ body {
     min-height: 100vh;
 }
 
+/* --- ELEMENTO HEADER --- */
+.main-header {
+    background-color: var(--primary-blue);
+    width: 100%;
+    max-width: 500px;
+    border-radius: 8px 8px 0 0; /* Arredonda apenas os cantos superiores */
+    text-align: center;
+    padding: 20px 0;
+    box-sizing: border-box;
+}
+
+h1 {
+    color: var(--white);
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+/* --- CONTAINER DO CONTEÚDO PRINCIPAL --- */
 .form-container {
     background-color: var(--white);
     max-width: 500px;
     width: 100%;
-    border-radius: 8px;
+    border-radius: 0 0 8px 8px; /* Arredonda apenas a base para acoplar no header */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     margin-bottom: 30px;
-}
-
-h1 {
-    background-color: var(--primary-blue);
-    color: var(--white);
-    margin: 0;
-    padding: 20px;
-    text-align: center;
-    font-size: 1.5rem;
+    box-sizing: border-box;
 }
 
 form {
     padding: 25px;
 }
 
+/* --- GRUPOS DE CAMPOS E RÓTULOS --- */
 .form-group {
     display: flex;
     flex-direction: column;
@@ -58,6 +71,7 @@ label {
     font-size: 0.9rem;
 }
 
+/* --- ENTRADAS DE DADOS (INPUTS, SELECT, TEXTAREA) --- */
 select, input[type="date"], textarea, input[type="text"] {
     width: 100%;
     padding: 10px;
@@ -71,7 +85,7 @@ select:focus, input:focus, textarea:focus {
     outline: 2px solid var(--dark-blue);
 }
 
-/* Sistema Interativo de Estrelas via CSS */
+/* --- SISTEMA INTERATIVO DE ESTRELAS --- */
 .star-rating {
     display: flex;
     flex-direction: row-reverse;
@@ -94,10 +108,9 @@ select:focus, input:focus, textarea:focus {
 .star-rating label:hover ~ label,
 .star-rating input:checked ~ label {
     color: var(--primary-blue);
-    content: "★";
 }
 
-/* Caixa de Seleção / Checkbox */
+/* --- CAIXAS DE SELEÇÃO (CHECKBOX) --- */
 .form-group-checkbox {
     border: none;
     padding: 0;
@@ -106,18 +119,32 @@ select:focus, input:focus, textarea:focus {
 
 .form-group-checkbox legend {
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     color: var(--dark-blue);
+    font-size: 1rem;
 }
 
-.form-group-checkbox label {
-    display: block;
-    font-weight: normal;
+/* Alinhamento corrigido para itens com labels vinculados */
+.checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Espaço horizontal entre a caixa e o texto */
     margin-bottom: 8px;
+}
+
+.checkbox-item input[type="checkbox"] {
+    width: auto; /* Impede que a caixa estique na tela */
+    margin: 0;
     cursor: pointer;
 }
 
-/* Botão Enviar */
+.checkbox-item label {
+    margin: 0;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+/* --- BOTÕES E LINKS DE ENVIO --- */
 .btn-submit {
     background-color: var(--primary-blue);
     color: var(--white);
@@ -135,7 +162,7 @@ select:focus, input:focus, textarea:focus {
     background-color: var(--dark-blue);
 }
 
-/* Rodapé */
+/* --- RODAPÉ --- */
 footer {
     text-align: center;
     background-color: var(--dark-blue);
@@ -145,6 +172,7 @@ footer {
     padding: 15px 0;
     border-radius: 8px;
     font-size: 0.9rem;
+    box-sizing: border-box;
 }
 
 footer p {
