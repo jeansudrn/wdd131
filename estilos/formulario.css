@@ -124,7 +124,6 @@ select:focus, input:focus, textarea:focus {
     font-size: 1rem;
 }
 
-/* Alinhamento corrigido para itens com labels vinculados */
 .checkbox-item {
     display: flex;
     align-items: center;
@@ -177,4 +176,23 @@ footer {
 
 footer p {
     margin: 5px 0;
+}
+
+/* --- ADICIONADO: REGRA DE MEDIA QUERY PARA RESPONSIVIDADE --- */
+@media (max-width: 576px) {
+    body {
+        padding: 10px;
+    }
+    
+    form {
+        padding: 15px;
+    }
+    
+    h1 {
+        font-size: 1.3rem;
+    }
+    
+    .star-rating {
+        font-size: 1.8rem;
+    }
 }
