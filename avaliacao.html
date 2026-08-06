@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avaliação Recebida</title>
+    <link rel="stylesheet" href="estilos/formulario.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // --- LÓGICA DO CONTADOR (localStorage) ---
+            let totalAvaliacoes = localStorage.getItem("contadorAvaliacoes");
+            if (totalAvaliacoes === null) {
+                totalAvaliacoes = 0;
+            }
+            totalAvaliacoes = parseInt(totalAvaliacoes) + 1;
+            localStorage.setItem("contadorAvaliacoes", totalAvaliacoes);
+
+            const displayContador = document.getElementById("contador-display");
+            if (displayContador) {
+                displayContador.textContent = totalAvaliacoes;
+            }
+
+            // --- CAPTURAR E EXIBIR OS DADOS DO FORMULÁRIO (GET) ---
+            const urlParams = new URLSearchParams(window.location.search);
+            
+            const produtoId = urlParams.get('produto');
+            const classificacao = urlParams.get('classificacao');
+            const dataInstalacao = urlParams.get('data-instalacao');
+            const nomeUsuario = urlParams.get('nome-usuario') || "Anônimo";
+
+            // Formatação da data (AAAA-MM-DD para DD/MM/AAAA)
+            let dataFormatada = "Não informada";
+            if (dataInstalacao) {
+                const partesData = dataInstalacao.split("-");
+                dataFormatada = `${partesData}/${partesData}/${partesData}`;
+            }
+
+            if (produtoId) document.getElementById("resumo-produto").textContent = produtoId;
+            if (classificacao) document.getElementById("resumo-nota").textContent = `${classificacao} Estrela(s)`;
+            if (dataInstalacao) document.getElementById("resumo-data").textContent = dataFormatada;
+            document.getElementById("resumo-usuario").textContent = nomeUsuario;
+        });
+    </script>
+</head>
+<body>
+
+    <main class="form-container">
+        <h1>Avaliação Enviada!</h1>
+        
+        <div style="padding: 25px;">
+            <p style="font-size: 1.2rem; font-weight: bold; color: var(--primary-blue); text-align: center; margin-bottom: 20px;">
+                Obrigado por enviar sua opinião!
+            </p>
+            
+            <!-- Resumo dos Dados -->
+            <div style="border: 1px solid var(--primary-blue); border-radius: 6px; padding: 15px; margin-bottom: 25px; background-color: #fff;">
+                <h2 style="font-size: 1.1rem; margin-top: 0; color: var(--dark-blue); border-bottom: 1px solid var(--light-blue); padding-bottom: 8px;">
+                    Resumo dos Dados Recebidos:
+                </h2>
+                <p style="margin: 8px 0;"><strong>ID do Produto:</strong> <span id="resumo-produto" style="color: var(--primary-blue);">---</span></p>
+                <p style="margin: 8px 0;"><strong>Classificação:</strong> <span id="resumo-nota" style="color: var(--primary-blue);">---</span></p>
+                <p style="margin: 8px 0;"><strong>Instalado em:</strong> <span id="resumo-data" style="color: var(--primary-blue);">---</span></p>
+                <p style="margin: 8px 0;"><strong>Enviado por:</strong> <span id="resumo-usuario" style="color: var(--primary-blue);">---</span></p>
+            </div>
+            
+            <!-- Contador -->
+            <div style="margin-bottom: 25px; padding: 15px; background-color: var(--light-blue); border-radius: 6px; text-align: center;">
+                <p style="margin: 0; font-size: 1rem; color: var(--dark-blue);">
+                    Total de avaliações concluídas por você:
+                </p>
+                <span id="contador-display" style="font-size: 2.5rem; font-weight: bold; color: var(--primary-blue); display: block; margin-top: 10px;">
+                    0
+                </span>
+            </div>
+
+            <a href="formulario.html" class="btn-submit" style="display: inline-block; text-decoration: none; text-align: center; box-sizing: border-box;">
+                Avaliar Outro Produto
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy;2026  Jean Carlos Jeronimo do Amaral Leal </p>
+        <p>Natal/RN</p>
+        <p>Última Modificação: 08/05/2026 22:15:00</p>
+    </footer>
+
+</body>
+</html>

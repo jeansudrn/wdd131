@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avaliação do Produto</title>
+    <link rel="stylesheet" href="estilos/formulario.css">
+    <script src="scripts/formulario.js" defer></script>
+</head>
+<body>
+
+    <main class="form-container">
+        <h1>Avaliação do Produto</h1>
+        
+        <form action="avaliacao.html" method="get">
+            
+            <!-- Nome do Produto -->
+            <div class="form-group">
+                <label for="produto">Nome do Produto</label>
+                <select id="produto" name="produto" required>
+                    <option value="" disabled selected>Selecione um Produto...</option>
+                </select>
+            </div>
+
+            <!-- Classificação Geral -->
+            <div class="form-group">
+                <label>Classificação Geral</label>
+                <div class="star-rating">
+                    <input type="radio" id="star5" name="classificacao" value="5" required>
+                    <label for="star5" title="5 estrelas">☆</label>
+                    
+                    <input type="radio" id="star4" name="classificacao" value="4" required>
+                    <label for="star4" title="4 estrelas">☆</label>
+                    
+                    <input type="radio" id="star3" name="classificacao" value="3" required>
+                    <label for="star3" title="3 estrelas">☆</label>
+                    
+                    <input type="radio" id="star2" name="classificacao" value="2" required>
+                    <label for="star2" title="2 estrelas">☆</label>
+                    
+                    <input type="radio" id="star1" name="classificacao" value="1" required>
+                    <label for="star1" title="1 estrela">☆</label>
+                </div>
+            </div>
+
+            <!-- Data de Instalação -->
+            <div class="form-group">
+                <label for="data-instalacao">Data de Instalação</label>
+                <input type="date" id="data-instalacao" name="data-instalacao" required>
+            </div>
+
+            <!-- Recursos Úteis -->
+            <fieldset class="form-group-checkbox">
+                <legend>Quais recursos você achou úteis no produto? (Marque todos que se aplicam)</legend>
+                
+                <label><input type="checkbox" name="recursos" value="durabilidade"> Durabilidade</label>
+                <label><input type="checkbox" name="recursos" value="facilidade-uso"> Facilidade de Uso</label>
+                <label><input type="checkbox" name="recursos" value="desempenho"> Desempenho</label>
+                <label><input type="checkbox" name="recursos" value="design"> Design</label>
+            </fieldset>
+
+            <!-- Avaliação Escrita -->
+            <div class="form-group">
+                <label for="avaliacao-texto">Avaliação Escrita <span class="optional">(Opcional)</span></label>
+                <textarea id="avaliacao-texto" name="avaliacao-texto" rows="4"></textarea>
+            </div>
+
+            <!-- Nome de Usuário -->
+            <div class="form-group">
+                <label for="nome-usuario">Seu Nome <span class="optional">(Opcional)</span></label>
+                <input type="text" id="nome-usuario" name="nome-usuario">
+            </div>
+
+            <!-- Botão de Envio -->
+            <input type="submit" value="Publicar Avaliação" class="btn-submit">
+
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy;2026  Jean Carlos Jeronimo do Amaral Leal </p>
+        <p>Natal/RN</p>
+        <p>Última Modificação: 08/05/2026 22:15:00</p>
+    </footer>
+
+</body>
+</html>
