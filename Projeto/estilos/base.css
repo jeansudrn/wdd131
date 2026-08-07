@@ -302,7 +302,7 @@ footer {
     }
 
     .nav-menu.open {
-        display: flex;
+        display: flex !important;
     }
 
     .hero-content h1 {
