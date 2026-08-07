@@ -1,23 +1,36 @@
-// Banco de dados em memória, recuperando do localStorage se existir (Atende: Usar localStorage)
+// Banco de dados recuperando do localStorage se existir (Critério 15)
 let transactions = JSON.parse(localStorage.getItem('grana_cash_data')) || [];
 
-// Captura de elementos globais de navegação (Atende: Interação DOM)
-const menuBtn = document.getElementById('menu-btn');
-const navList = document.getElementById('nav-list');
+// ==========================================
+// FUNÇÃO 1: MENU GLOBAL RESPONSIVO
+// ==========================================
+function inicializarMenu() {
+    const menuBtn = document.getElementById('menu-btn');
+    const navList = document.getElementById('nav-list');
 
-// Função 1: Controlar a abertura do Menu Hamburguer (Atende: Ter mais de uma função)
-if (menuBtn && navList) {
-    menuBtn.addEventListener('click', () => {
-        navList.classList.toggle('open');
-    });
+    // Verifica se os elementos do menu existem na página atual antes de aplicar o evento
+    if (menuBtn && navList) {
+        menuBtn.addEventListener('click', (e) => {
+            e.stopPropagation(); // Impede que o clique feche o menu imediatamente
+            navList.classList.toggle('open');
+        });
+
+        // Fecha o menu se o usuário clicar em qualquer outro lugar da tela
+        document.addEventListener('click', () => {
+            if (navList.classList.contains('open')) {
+                navList.classList.remove('open');
+            }
+        });
+    }
 }
 
-// Função 2: Salvar registros no banco local do navegador
+// ==========================================
+// FUNÇÕES DE SUPORTE AO BANCO DE DADOS
+// ==========================================
 function syncStorage() {
     localStorage.setItem('grana_cash_data', JSON.stringify(transactions));
 }
 
-// Função 3: Adicionar um novo item no array de transações
 function appendTransaction(description, amount, type) {
     const item = {
         id: Date.now(),
@@ -26,54 +39,44 @@ function appendTransaction(description, amount, type) {
         type: type
     };
     
-    // Insere o objeto no array principal (Atende: Usar objetos, arrays e métodos de array)
     transactions.push(item);
     syncStorage();
     renderDashboard();
 }
 
-// Função 4: Remover item por ID único
 function removeTransaction(id) {
-    // Filtra removendo o ID correspondente usando método de array (Atende: Métodos de array)
     transactions = transactions.filter(t => t.id !== id);
     syncStorage();
     renderDashboard();
 }
 
-// Função 5: Realizar as contas e atualizar toda a tela do painel
+// ==========================================
+// FUNÇÃO 2: RENDERIZAÇÃO DO PAINEL (DASHBOARD)
+// ==========================================
 function renderDashboard() {
-    // Referências do DOM na página dashboard.html
     const tableBody = document.querySelector('#transactions-table tbody');
     const incomeDisplay = document.getElementById('total-income');
     const expenseDisplay = document.getElementById('total-expense');
     const balanceDisplay = document.getElementById('total-balance');
 
-    // Valida se estamos de fato na página do painel para evitar erros de console
+    // PROTEÇÃO: Se a página atual não tiver a tabela (ex: index.html ou sobre.html), aborta a execução suavemente
     if (!tableBody) return;
 
-    // Zera o corpo da tabela antes de desenhar os itens
     tableBody.innerHTML = '';
 
     let sumIncome = 0;
     let sumExpense = 0;
 
-    // Varre o array de lançamentos (Atende: Métodos de array - forEach)
     transactions.forEach(t => {
-        // Estrutura Condicional para classificar os tipos (Atende: Usar branch condicional)
         if (t.type === 'income') {
             sumIncome += t.amount;
         } else {
             sumExpense += t.amount;
         }
 
-        // Variáveis de formatação visual
         const fontClass = t.type === 'income' ? 'text-success' : 'text-danger';
         const sign = t.type === 'income' ? '+' : '-';
 
-        /* 
-           CONSTRUÇÃO DO HTML USANDO EXCLUSIVAMENTE TEMPLATE LITERALS 
-           (Atende perfeitamente ao critério obrigatório do curso)
-        */
         const rowTemplate = `
             <tr>
                 <td>${t.description}</td>
@@ -84,19 +87,15 @@ function renderDashboard() {
             </tr>
         `;
 
-        // Modifica a estrutura inserindo o template renderizado no DOM (Atende: Interação DOM)
         tableBody.insertAdjacentHTML('beforeend', rowTemplate);
     });
 
-    // Calcula o saldo líquido final
     const finalBalance = sumIncome - sumExpense;
 
-    // Atualiza os cartões de resumo na tela usando Template Literals
     incomeDisplay.textContent = `R$ ${sumIncome.toFixed(2)}`;
     expenseDisplay.textContent = `R$ ${sumExpense.toFixed(2)}`;
     balanceDisplay.textContent = `R$ ${finalBalance.toFixed(2)}`;
 
-    // Altera a cor do texto do saldo de acordo com o resultado positivo ou negativo
     if (finalBalance >= 0) {
         balanceDisplay.className = 'text-success';
     } else {
@@ -104,23 +103,23 @@ function renderDashboard() {
     }
 }
 
-// Escutador do evento de submit do Formulário Padrão (Atende: Ouvir e reagir a eventos)
+// ==========================================
+// INICIALIZAÇÃO DO FORMULÁRIO E EVENTOS
+// ==========================================
 const financeForm = document.getElementById('finance-form');
 if (financeForm) {
     financeForm.addEventListener('submit', (e) => {
-        e.preventDefault(); // Impede o recarregamento padrão da página
+        e.preventDefault(); 
 
         const descValue = document.getElementById('description').value;
         const amountValue = document.getElementById('amount').value;
         const typeValue = document.getElementById('type').value;
 
-        // Passa as informações validadas para a função de inserção
         appendTransaction(descValue, amountValue, typeValue);
-
-        // Limpa todos os campos do formulário após o registro bem-sucedido
         financeForm.reset();
     });
 }
 
-// Inicialização automática ao carregar a página
+// Dispara as funções assim que o arquivo JavaScript carrega
+inicializarMenu();
 renderDashboard();
